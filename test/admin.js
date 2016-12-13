@@ -20,7 +20,7 @@ describe('admins', () => {
     });
   });
   it('should find admins by id', done => {
-    nock('https://api.intercom.io').post('/admins/bar').query({ id: 'bar' }).reply(200, {});
+    nock('https://api.intercom.io').get('/admins/bar').reply(200, {});
     const client = new Client('foo', 'bar').usePromises();
     client.admins.find({ id: 'bar' }).then(r => {
       assert.equal(200, r.status);
